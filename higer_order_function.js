@@ -27,20 +27,16 @@ companies.forEach((company, index) => {
 });
 
 /* filter */
-// Get 21 or older
-
 const canDrink = ages.filter((age) => age >= 21);
 console.log(canDrink);
 
 // Filter retail companies
-
 const retailCompanes = companies.filter(
   (company) => company.category === 'Retail'
 );
 console.log(retailCompanes);
 
 // Get 80s Companies
-
 const eightiesCompanies = companies.filter(
   (company) => company.start >= 1980 && company.start <= 1990
 );
@@ -116,12 +112,20 @@ const totalAgeForCompanies = companies.reduce(
 );
 console.log('Total Years for all Companies -> ', totalAgeForCompanies);
 
+/* New Object with key = id and value = object */
+const newObject = companies.reduce((acc, co) => {
+  acc[co.id] = co;
+  return acc;
+}, {})
+
+console.log(newObject);
+
 /* Like Distinct */
 const distinctArr = [...new Set(ages)];
 
 /* Find */
-const isFound = companies.find(company => company.name.toLowerCase() === 'company one'.toLowerCase());
-console.log(isFound);
+const foundCompany = companies.find(company => company.name.toLowerCase() === 'company one'.toLowerCase());
+console.log(foundCompany);
 
 /* Some */
 
